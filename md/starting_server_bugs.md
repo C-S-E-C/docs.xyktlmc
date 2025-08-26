@@ -5,7 +5,7 @@ This passage will tell you how to solve some regular problems that may happen wh
 ## Problem 1:  
 When a player wants to join the server the launcher says:   
 > Name not resolved  
-This means that when the launcher tried to find the dns record of the server, it faild.  
+##### This means that when the launcher tried to find the dns record of the server, it faild.  
 ### Causes & Solutions:  
 1. The dns record is missing.  
     - log into cloudflare try to find a `SRV` record if you failed to find on that means that you fhave found the cause!  
@@ -25,5 +25,5 @@ This means that when the launcher tried to find the dns record of the server, it
 ## Problem 2:  
 When a player wants to join the server the launcher says:   
 > get sock opt  
-This means that the FRP isn't running correctly  
+##### This means that the FRP isn't running correctly  
  
