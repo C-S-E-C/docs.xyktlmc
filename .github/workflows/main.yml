@@ -21,7 +21,7 @@ jobs:
           mapfile -d ',' -t added_modified_files < <(printf '%s,' '${{ steps.files.outputs.added_modified }}')
           for added_modified_file in "${added_modified_files[@]}"; do
             echo "Adding ${added_modified_file}."
-            echo "<!DOCTYPE html><html lang='en-us'><body style='background-color: #121212;'><iframe style='width: 100%;height: 1000px;margin: 0 0;border: none;' border=none src='api.html?mdfile=${added_modified_file}'></iframe></body></html>" > $(basename "${added_modified_file}" .md)
+            echo "<!DOCTYPE html><html lang='en-us'><body style='background-color: #121212;'><iframe style='width: 100%;height: 1000px;margin: 0 0;border: none;' border=none src='api.html?mdfile=${added_modified_file}'></iframe></body></html>" > $(basename "${added_modified_file}" .md).html
           done
       - name: Commit Passage
         uses: stefanzweifel/git-auto-commit-action@v6
