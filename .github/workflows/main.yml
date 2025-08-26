@@ -1,0 +1,24 @@
+name: MakeNewPassage
+on:
+  push:
+    branches: [main]
+    paths:
+      - "md/**"
+permissions:
+  contents: write
+jobs:
+  score-code:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+      - id: files
+        uses: jitterbit/get-changed-files@v1
+        with:
+          format: 'csv'
+      - name: Get Changed and New Passages
+        run: |
+          mapfile -d ',' -t added_modified_files < <(printf '%s,' '${{ steps.files.outputs.added_modified }}')
+          for added_modified_file in "${added_modified_files[@]}"; do
+            echo "Adding ${added_modified_file}."
+          done
